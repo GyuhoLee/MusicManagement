@@ -4,8 +4,6 @@
 
 #include <iostream>
 #include <string>
-#include <Windows.h>
-#include <mmsystem.h>
 
 using namespace std;
 
