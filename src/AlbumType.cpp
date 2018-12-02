@@ -118,8 +118,11 @@ void AlbumType::DisplayAllMusicInAlbum()
 		system("cls");
 		cout << "\n\n";
 		mTemp.DisplayRecordOnScreen();
-		cout << "\n\t";
-		system("pause");
+		if (!(mTemp.SoundSong()))
+		{
+			cout << "\n\t";
+			system("pause");
+		}
 		break;
 	case 2:
 		m_List.Get(mTemp);
