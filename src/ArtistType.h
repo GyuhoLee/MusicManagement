@@ -10,9 +10,6 @@
 #include <iomanip>
 
 
-#pragma comment(lib, "winmm.lib")
-
-
 /**
 *	@class	ArtistType
 *	@author	Gyuho Lee
