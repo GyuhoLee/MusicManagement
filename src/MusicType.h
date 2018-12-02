@@ -5,6 +5,12 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <Windows.h>
+#include <mmsystem.h>
+#include <ctime>
+#include <conio.h>
+#include <atlstr.h>
+#pragma comment(lib, "winmm.lib")
 
 using namespace std;
 
@@ -36,6 +42,7 @@ public:
 		m_Lyricist = "";
 		m_Agency = "";
 		m_ReleaseDate = "";
+		m_PlayTime = 0;
 	}
 
 	/**
@@ -154,6 +161,17 @@ public:
 	}
 
 	/**
+	*	@brief	Get music time
+	*	@pre	music time is set.
+	*	@post	none.
+	*	@return	music time.
+	*/
+	int GetPlayTime()
+	{
+		return m_PlayTime;
+	}
+
+	/**
 	*	@brief	Set music number.
 	*	@pre	none.
 	*	@post	music number is set.
@@ -261,6 +279,17 @@ public:
 	void SetReleaseDate(string inReleaseDate)
 	{
 		m_ReleaseDate = inReleaseDate;
+	}
+
+	/**
+	*	@brief	Set music time.
+	*	@pre	none.
+	*	@post	music time is set.
+	*	@param	inPlayTime	music time.
+	*/
+	void SetPlayTime(int inPlayTime)
+	{
+		m_PlayTime = inPlayTime;
 	}
 
 	/**
@@ -535,6 +564,22 @@ public:
 	*/
 	void CopyRecord(MusicType data);
 
+	/**
+	*	@brief 각 가수의 대표곡을 들려준다.
+	*	@pre	wav 파일이 Music 폴더 내에 존재
+	*	@post	wav파일 실행
+	*/
+	bool SoundSong();
+
+	/**
+	*	@brief	커서를 x, y로 이동
+	*	@post	커서가 (x,y) 로 이동함.
+	*	@pram	x	이동할 x 좌표
+	*	@pram	y	이동할 y 좌표
+	*	@return	노래가 있을시 true 없을시 false
+	*/
+	void gotoxy(float x, int y);
+
 	// complete operation overloadings...
 	void operator=(const MusicType &obj);
 	bool operator==(MusicType obj);
@@ -555,6 +600,7 @@ protected:
 	string m_Lyricist;		///< 작사가
 	string m_Agency;		///< 소속사
 	string m_ReleaseDate;	///< 발매일
+	int m_PlayTime;			///< 음악의 시간
 };
 
 #endif	// _MUSICTYPE_H
