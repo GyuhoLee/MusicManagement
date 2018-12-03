@@ -26,7 +26,6 @@ void Application::FirstRun()
 		FirstRun();
 		break;
 	default:
-		FirstRun();
 		break;
 
 	}

@@ -202,6 +202,10 @@ bool MusicType::SoundSong()
 		if (_kbhit())
 		{
 			key = _getch();
+			if (key == 32)
+			{
+				break;
+			}
 			if (key == 13)
 			{
 				PlaySound(NULL, NULL, NULL);
@@ -223,7 +227,8 @@ bool MusicType::SoundSong()
 		cout << "└──┴";
 		for (int j = 0; j < 41; j++) cout << "─";
 		cout << "┘";
-		cout << endl << endl << "\t 돌아가시려면 Enter키를 눌러주세요.";
+		cout << endl << endl << "\t 돌아가시려면 Enter키를 눌러주세요." << endl;
+		cout << "\t 노래를 재생시킨채로 돌아가시려면 SpaceBar를 눌러주세요.";
 		Sleep(500);
 	}
 	return true;
